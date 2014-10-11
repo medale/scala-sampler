@@ -1,14 +1,15 @@
 package json
 
 import org.scalatest.FunSuite
+import org.scalatest.junit.JUnitRunner
 import scala.io.Source
 import scala.util.control.NonFatal
-
 import com.fasterxml.jackson.core.JsonParseException
 import play.api.libs.json.{ Json, JsValue }
-import play.api.libs.json._
+import org.junit.runner.RunWith
 
 //Documentation at https://www.playframework.com/documentation/2.3.0/ScalaJson
+@RunWith(classOf[JUnitRunner])
 class PlayJsonApiTest extends FunSuite {
 
   val validJsonFile = "src/test/resources/configs/validConfig.json"
