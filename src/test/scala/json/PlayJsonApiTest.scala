@@ -16,7 +16,7 @@ class PlayJsonApiTest extends FunSuite {
   val invalidJsonFile = "src/test/resources/configs/invalidConfig.json"
 
   test("JSON object appName field should be JsonNator") {
-	val jsonOpt = getJsonStringOption(validJsonFile)
+    val jsonOpt = getJsonStringOption(validJsonFile)
     for (jsonStr <- jsonOpt) {
       try {
         val json: JsValue = Json.parse(jsonStr)
@@ -27,7 +27,7 @@ class PlayJsonApiTest extends FunSuite {
       }
     }
   }
-  
+
   test("JSON object appVersion field should be double 1.0") {
     val jsonOpt = getJsonStringOption(validJsonFile)
     for (jsonStr <- jsonOpt) {
@@ -36,13 +36,13 @@ class PlayJsonApiTest extends FunSuite {
       assert(appVersion.get === 1.0)
     }
   }
-  
+
   test("JSON object foos array field processing for bar,baz") {
     val jsonOpt = getJsonStringOption(validJsonFile)
     for (jsonStr <- jsonOpt) {
       val json: JsValue = Json.parse(jsonStr)
       val foos = (json \ "foos").asOpt[List[String]]
-      assert(foos.get === List("bar","baz"))
+      assert(foos.get === List("bar", "baz"))
     }
   }
 
@@ -54,7 +54,7 @@ class PlayJsonApiTest extends FunSuite {
       }
     }
   }
-  
+
   ignore("Don't run this test") {
     assert(1 === 1)
   }
@@ -66,7 +66,7 @@ class PlayJsonApiTest extends FunSuite {
       jsonSourceOpt = Option(Source.fromFile(fileName))
       jsonSourceOpt match {
         case Some(jsonSource) => Some(jsonSource.mkString)
-        case None => None
+        case None             => None
       }
     } catch {
       case NonFatal(ex) => {
