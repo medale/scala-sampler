@@ -4,6 +4,7 @@
 
 * SBT: http://www.scala-sbt.org/release/tutorial/
 * Scala: Dean Wampler/Alex Payne, Programming Scala, 2nd Edition, O'Reilly, 2014
+* http://twitter.github.io/effectivescala/
 
 ## Notes
 

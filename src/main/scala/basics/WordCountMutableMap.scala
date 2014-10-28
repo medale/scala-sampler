@@ -20,5 +20,15 @@ object WordCountMutableMap {
     source.close()
     ImmutableMap() ++ wordCountMap
   }
+  
+  def getWordCountGroupBy(in: InputStream): ImmutableMap[String, Int] = {
+    val source = Source.fromInputStream(in)
+    val lines = source.getLines
+    val words = lines.flatMap(l => l.split(" "))
+    val groupedWords = words.map(_.toUpperCase()).toList.groupBy {identity}
+    val wordCounts = groupedWords.map { case(k,v) => (k, v.size)}
+    source.close()
+    wordCounts
+  }
 
 }

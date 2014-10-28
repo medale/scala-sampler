@@ -24,4 +24,20 @@ class WordCountMutableMapTest extends FunSuite {
     wordsIn.close()
   }
   
+  test("words.txt with groupBy") {
+    val wordsUrl = "/inputs/words.txt"
+    val wordsIn = getClass.getResourceAsStream(wordsUrl)
+    val wordsMap = WordCountMutableMap.getWordCountGroupBy(wordsIn)
+    println(wordsMap)
+    //expected words capitalized!
+    val expectedPairs = List("1C" -> 1, "2C" -> 2, "3C" -> 3)
+    assert(wordsMap.size === expectedPairs.size)
+    for(expectedPair <- expectedPairs) {
+      val (key, value) = expectedPair
+      assert(wordsMap.contains(key))
+      assert(wordsMap(key) === value)
+    }
+    wordsIn.close()
+  }
+  
 }
