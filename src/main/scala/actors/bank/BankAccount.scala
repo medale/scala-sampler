@@ -3,6 +3,13 @@ package actors.bank
 import akka.actor.Actor
 import akka.event.LoggingReceive
 
+/**
+ * Expanded example originated from Coursera Reactive Programming
+ * class - Roland Kuhn lecture.
+ *
+ * Run: akka.Main
+ * Args: -Dakka.loglevel=DEBUG -Dakka.actor.debug.receive=on (with LoggingReceive)
+ */
 object BankAccount {
   case class Deposit(amount: BigInt) {
     require(amount > 0)

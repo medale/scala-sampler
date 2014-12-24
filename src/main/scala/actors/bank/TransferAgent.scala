@@ -4,6 +4,13 @@ import akka.actor.Actor
 import akka.actor.ActorRef
 import akka.event.LoggingReceive
 
+/**
+ * Expanded example originated from Coursera Reactive Programming
+ * class - Roland Kuhn lecture.
+ *
+ * Run: akka.Main
+ * Args: -Dakka.loglevel=DEBUG -Dakka.actor.debug.receive=on (with LoggingReceive)
+ */
 object TransferAgent {
   case class Transfer(from: ActorRef, to: ActorRef, amount: BigInt)
   case object Done

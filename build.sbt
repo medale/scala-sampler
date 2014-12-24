@@ -16,4 +16,6 @@ libraryDependencies += "com.typesafe.play" %% "play-json" % "2.3.0"
 
 libraryDependencies += "com.typesafe.akka" %% "akka-actor" % "2.3.7"
 
+libraryDependencies += "com.ning" % "async-http-client" % "1.9.3"
+
 EclipseKeys.createSrc := EclipseCreateSrc.ValueSet(EclipseCreateSrc.Unmanaged, EclipseCreateSrc.Source, EclipseCreateSrc.Resource)
